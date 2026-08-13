@@ -1,0 +1,5 @@
+config.py
+nfl_data/
+docs/mobile/*.log
+__pycache__/
+*.pyc
