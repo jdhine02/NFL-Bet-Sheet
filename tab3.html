@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2545;--dim:#6b7280;--bd:#e0e4ed;--gold:#C8960C;--green:#1a7a3a;--cond:'Barlow Condensed',sans-serif;--mono:'JetBrains Mono',monospace;--body:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:#f5f6fa;padding:16px;font-size:13px;max-width:1450px;margin:0 auto}
+.hdr{background:linear-gradient(135deg,var(--navy),#173a63);color:#fff;padding:12px 16px;border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.htitle{font-family:var(--cond);font-size:24px;font-weight:800}
+.logo-chip{display:inline-flex;align-items:center;justify-content:center;background:transparent;vertical-align:middle}
+.logo-chip img{display:block;height:24px;width:auto;filter:drop-shadow(0 0 1.5px rgba(255,255,255,.9)) drop-shadow(0 0 1px rgba(255,255,255,.9))}
+.logo-pair{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+.tabs{display:flex;gap:3px;margin-bottom:10px;flex-wrap:wrap}
+.tab-link{padding:6px 14px;border-radius:6px 6px 0 0;font-weight:600;font-size:12px;
+border:1px solid var(--bd);border-bottom:none;background:#e8eaf0;color:var(--dim);
+text-decoration:none;display:inline-block;font-family:var(--cond)}
+.tab-link.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab-link:hover:not(.active){background:var(--navy);color:#fff;opacity:.8}
+
+
+.wx{background:#e9edfb;border-radius:8px;padding:8px 12px;margin-bottom:12px;font-size:12px;display:inline-block}
+.sec{font-family:var(--cond);font-size:17px;font-weight:800;color:var(--navy);margin:18px 0 6px;padding-bottom:4px;border-bottom:2px solid var(--bd)}
+table{border-collapse:collapse;width:100%}
+th{background:#eef1f7;color:var(--dim);font-size:9px;text-transform:uppercase;padding:5px 6px;text-align:center;white-space:nowrap}
+td{padding:5px 6px;border-bottom:1px solid var(--bd);font-size:11px;white-space:nowrap;vertical-align:middle;text-align:center}
+.tbl-wrap{background:#fff;border:1px solid var(--bd);border-radius:8px;margin-bottom:12px;overflow-x:auto}
+.mono{font-family:var(--mono)}.navy{color:var(--navy)}.c{text-align:center}.r{text-align:right}.tl{white-space:normal;text-align:left}
+.pos{display:inline-block;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700;margin-left:4px}
+.pos-qb{background:#dbeafe;color:#1e40af}.pos-rb{background:#dcfce7;color:#166534}.pos-wr{background:#fef9c3;color:#854d0e}.pos-te{background:#ede9fe;color:#5b21b6}
+.grade{display:inline-block;padding:2px 8px;border-radius:5px;font-size:12px;font-weight:800;color:#fff}
+.cell-hl{display:inline-block;border-radius:5px;padding:2px 8px;font-weight:800;font-family:var(--mono);color:#fff}
+.lock-badge{display:inline-block;background:var(--gold,#C8960C);color:#fff;font-size:9px;font-weight:800;padding:1px 6px;border-radius:4px}
+.value-badge{display:inline-block;background:var(--green,#1a7a3a);color:#fff;font-size:9px;font-weight:800;padding:1px 6px;border-radius:4px}
+.subsec{font-family:var(--cond);font-size:14px;font-weight:800;color:#4A6FA5;margin:10px 0 4px}
+.team-stat-grid{width:100%;border-collapse:collapse;margin-bottom:8px}
+.team-stat-grid th{background:#f8f9fc}
+.team-best{color:#fff!important;font-weight:700}
+
+</style></head><body>
+<div id="spark-tip" style="position:fixed;display:none;background:#1a1d2e;padding:5px 9px;border-radius:5px;
+font-size:10px;font-family:var(--mono);pointer-events:none;z-index:9999;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,.35)"></div>
+<script>
+function showTip(evt,label,val,opp,date,over){
+  var t=document.getElementById('spark-tip');
+  var color = over==='true' ? '#4ade80' : '#f87171';
+  t.innerHTML = '<span style="color:#9ca3af">'+date+' vs '+opp+'</span><br><span style="color:'+color+';font-weight:700">'+label+': '+val+'</span>';
+  t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; t.style.display='block';
+}
+function moveTip(evt){ var t=document.getElementById('spark-tip'); t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; }
+function hideTip(){ document.getElementById('spark-tip').style.display='none'; }
+</script>
+<div class="hdr"><div class="htitle">Early Slate</div><span class="logo-pair"><span class="logo-chip lg"><img src="Logos/cbs.png" alt="cbs"></span><span class="logo-chip lg"><img src="Logos/fox.png" alt="fox"></span></span></div>
+<div class="tabs"><a href="index.html" class="tab-link">Top Props</a><a href="tab1.html" class="tab-link">Parlays</a><a href="tab2.html" class="tab-link">TNF</a><a href="tab3.html" class="tab-link active">Early Slate</a><a href="tab4.html" class="tab-link">Late Slate</a><a href="tab5.html" class="tab-link">SNF</a><a href="tab6.html" class="tab-link">MNF</a><a href="tab7.html" class="tab-link">Injuries</a><a href="tab8.html" class="tab-link">Results</a></div>
+<div class="tbl-wrap" style="padding:20px;text-align:center;color:var(--dim)">No real games in this slot this week.</div>
+</body></html>

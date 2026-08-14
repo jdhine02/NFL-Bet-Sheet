@@ -1,11 +1,28 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0B2545;--dim:#6b7280;--bd:#e0e4ed;--cond:'"'"'Barlow Condensed'"'"',sans-serif;--mono:'"'"'JetBrains Mono'"'"',monospace;--body:'"'"'Inter'"'"',sans-serif}
+:root{--navy:#0B2545;--navyd:#e6ebf5;--red:#B3121B;--redd:#fde8ec;--gold:#C8960C;--goldd:#fef7e0;--green:#1a7a3a;--greend:#e6f7ec;--dim:#6b7280;--bd:#e0e4ed;--cond:'"'"'Barlow Condensed'"'"',sans-serif;--mono:'"'"'JetBrains Mono'"'"',monospace;--body:'"'"'Inter'"'"',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--body);background:#f5f6fa;padding:16px;font-size:13px}
+.mast{background:var(--navy);border-radius:12px;padding:28px;margin-bottom:14px;text-align:center;box-shadow:0 4px 16px rgba(11,37,69,.3)}
+.mast-logo{font-family:var(--cond);font-size:36px;font-weight:800;color:#fff;letter-spacing:1px}
+.mast-logo span{color:var(--red)}
+.mast-date{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:.08em}
+.mast-sub{color:rgba(255,255,255,.8);font-size:12px;margin-top:10px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.stat-box{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px;text-align:center}
+.stat-n{font-family:var(--cond);font-size:26px;font-weight:800;color:var(--navy)}
+.stat-l{font-size:10px;color:var(--dim);margin-top:2px;text-transform:uppercase;font-weight:700}
 .hdr{background:linear-gradient(135deg,var(--navy),#173a63);color:#fff;padding:12px 16px;border-radius:8px;margin-bottom:12px}
 .htitle{font-family:var(--cond);font-size:24px;font-weight:800}
+
+.tabs{display:flex;gap:3px;margin-bottom:10px;flex-wrap:wrap}
+.tab-link{padding:6px 14px;border-radius:6px 6px 0 0;font-weight:600;font-size:12px;
+border:1px solid var(--bd);border-bottom:none;background:#e8eaf0;color:var(--dim);
+text-decoration:none;display:inline-block;font-family:var(--cond)}
+.tab-link.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tab-link:hover:not(.active){background:var(--navy);color:#fff;opacity:.8}
+
 .sec{font-family:var(--cond);font-size:17px;font-weight:800;color:var(--navy);margin:18px 0 6px;padding-bottom:4px;border-bottom:2px solid var(--bd)}
 table{border-collapse:collapse;width:100%}
 th{background:#eef1f7;color:var(--dim);font-size:9px;text-transform:uppercase;padding:6px;text-align:left}
@@ -15,9 +32,21 @@ td{padding:6px;border-bottom:1px solid var(--bd);font-size:11px;vertical-align:m
 .team{color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700}
 .grade{display:inline-block;padding:3px 9px;border-radius:5px;font-size:12px;font-weight:800;color:#fff}
 .grade-noline{background:#fff!important;border:2px solid;font-size:10px}
-.lock-badge{display:inline-block;background:#C8960C;color:#fff;font-size:9px;font-weight:800;padding:1px 6px;border-radius:4px;letter-spacing:.3px}
+.lock-badge{display:inline-block;background:var(--gold);color:#fff;font-size:9px;font-weight:800;padding:1px 6px;border-radius:4px;letter-spacing:.3px}
 </style></head><body>
+<div class="mast">
+  <div class="mast-logo">🏈 NFL <span>BET</span> SHEET</div>
+  <div class="mast-date">FRIDAY AUGUST 14, 2026</div>
+  <div class="mast-sub">36 real props evaluated &middot; 0 with real market lines</div>
+</div>
+<div class="stat-row">
+  <div class="stat-box"><div class="stat-n">36</div><div class="stat-l">Props Evaluated</div></div>
+  <div class="stat-box"><div class="stat-n">0</div><div class="stat-l">Real Lines</div></div>
+  <div class="stat-box"><div class="stat-n">0</div><div class="stat-l">Value Plays</div></div>
+  <div class="stat-box"><div class="stat-n">0</div><div class="stat-l">🔒 Locks</div></div>
+</div>
 <div class="hdr"><div class="htitle">NFL Bet Sheet - Top Props</div></div>
+<div class="tabs"><a href="index.html" class="tab-link active">Top Props</a><a href="tab1.html" class="tab-link">Parlays</a><a href="tab2.html" class="tab-link">TNF</a><a href="tab3.html" class="tab-link">Early Slate</a><a href="tab4.html" class="tab-link">Late Slate</a><a href="tab5.html" class="tab-link">SNF</a><a href="tab6.html" class="tab-link">MNF</a><a href="tab7.html" class="tab-link">Injuries</a><a href="tab8.html" class="tab-link">Results</a></div>
 <div class="sec">🎯 Top 12 - Passing Yards</div>
 <div class="tbl-wrap"><table style="min-width:850px"><tr>
 <th>#</th><th>Player</th><th title="X% likelihood of beating the line">Rating</th><th title="Market line -- not yet wired, shows TBD until real odds exist">Line</th>
@@ -248,17 +277,17 @@ td{padding:6px;border-bottom:1px solid var(--bd);font-size:11px;vertical-align:m
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
 </tr><tr>
 <td><strong style="font-family:var(--cond);font-size:14px;color:var(--navy)">4</strong></td>
-<td class="tl"><strong>Garrett Wilson</strong> <span class="team" style="background:#125740">NYJ</span><br>
-<span style="font-size:9px;color:var(--dim)">NYJ@TB</span></td>
-<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 9.3" style="border-color:hsl(112,62%,42%);color:hsl(112,62%,42%)">9.3</span></td>
+<td class="tl"><strong>Nico Collins</strong> <span class="team" style="background:#03202F">HOU</span><br>
+<span style="font-size:9px;color:var(--dim)">HOU@LAC</span></td>
+<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.8" style="border-color:hsl(106,62%,42%);color:hsl(106,62%,42%)">8.8</span></td>
 <td class="mono navy"><span style="color:#9ca3af">TBD</span></td>
 <td class="mono c">71.8</td>
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
 </tr><tr>
 <td><strong style="font-family:var(--cond);font-size:14px;color:var(--navy)">5</strong></td>
-<td class="tl"><strong>Nico Collins</strong> <span class="team" style="background:#03202F">HOU</span><br>
-<span style="font-size:9px;color:var(--dim)">HOU@LAC</span></td>
-<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.8" style="border-color:hsl(106,62%,42%);color:hsl(106,62%,42%)">8.8</span></td>
+<td class="tl"><strong>Garrett Wilson</strong> <span class="team" style="background:#125740">NYJ</span><br>
+<span style="font-size:9px;color:var(--dim)">NYJ@TB</span></td>
+<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 9.3" style="border-color:hsl(112,62%,42%);color:hsl(112,62%,42%)">9.3</span></td>
 <td class="mono navy"><span style="color:#9ca3af">TBD</span></td>
 <td class="mono c">71.8</td>
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
@@ -304,17 +333,17 @@ td{padding:6px;border-bottom:1px solid var(--bd);font-size:11px;vertical-align:m
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
 </tr><tr>
 <td><strong style="font-family:var(--cond);font-size:14px;color:var(--navy)">11</strong></td>
-<td class="tl"><strong>Courtland Sutton</strong> <span class="team" style="background:#FB4F14">DEN</span><br>
-<span style="font-size:9px;color:var(--dim)">DEN@ATL</span></td>
-<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.4" style="border-color:hsl(101,62%,42%);color:hsl(101,62%,42%)">8.4</span></td>
+<td class="tl"><strong>Rashee Rice</strong> <span class="team" style="background:#E31837">KC</span><br>
+<span style="font-size:9px;color:var(--dim)">KC@LA</span></td>
+<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.1" style="border-color:hsl(97,62%,42%);color:hsl(97,62%,42%)">8.1</span></td>
 <td class="mono navy"><span style="color:#9ca3af">TBD</span></td>
 <td class="mono c">62.5</td>
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
 </tr><tr>
 <td><strong style="font-family:var(--cond);font-size:14px;color:var(--navy)">12</strong></td>
-<td class="tl"><strong>Rashee Rice</strong> <span class="team" style="background:#E31837">KC</span><br>
-<span style="font-size:9px;color:var(--dim)">KC@LA</span></td>
-<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.1" style="border-color:hsl(97,62%,42%);color:hsl(97,62%,42%)">8.1</span></td>
+<td class="tl"><strong>Courtland Sutton</strong> <span class="team" style="background:#FB4F14">DEN</span><br>
+<span style="font-size:9px;color:var(--dim)">DEN@ATL</span></td>
+<td><span class="grade grade-noline" title="No market line available -- this is DATA CONFIDENCE only, not a betting rating: 8.4" style="border-color:hsl(101,62%,42%);color:hsl(101,62%,42%)">8.4</span></td>
 <td class="mono navy"><span style="color:#9ca3af">TBD</span></td>
 <td class="mono c">62.5</td>
 <td class="mono c" style="font-size:10px;color:var(--dim)">—</td>
