@@ -54,13 +54,31 @@ td{padding:8px 10px;border-bottom:1px solid var(--bd);font-size:15px;white-space
 <div id="spark-tip" style="position:fixed;display:none;background:#1a1d2e;padding:5px 9px;border-radius:5px;
 font-size:10px;font-family:var(--mono);pointer-events:none;z-index:9999;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,.35)"></div>
 <script>
+function _positionTip(t,evt){
+  // real fix 8/20/26: was always placed at clientX+12 with no viewport
+  // check -- confirmed live on mobile, bars in the right half of the
+  // screen (esp. narrow phone widths) pushed the box off-screen, cut off
+  // mid-text. Now measures the box after filling it in and flips to the
+  // LEFT of the cursor whenever the default right-side placement would
+  // overflow the window, same real logic top/bottom.
+  var pad = 8;
+  var left = evt.clientX + 12;
+  var top = evt.clientY - 28;
+  var rect = t.getBoundingClientRect();
+  if (left + rect.width + pad > window.innerWidth) left = evt.clientX - rect.width - 12;
+  if (left < pad) left = pad;
+  if (top < pad) top = evt.clientY + 16;
+  if (top + rect.height + pad > window.innerHeight) top = window.innerHeight - rect.height - pad;
+  t.style.left = left + 'px'; t.style.top = top + 'px';
+}
 function showTip(evt,label,val,opp,date,over){
   var t=document.getElementById('spark-tip');
   var color = over==='true' ? '#4ade80' : '#f87171';
   t.innerHTML = '<span style="color:#9ca3af">'+date+' vs '+opp+'</span><br><span style="color:'+color+';font-weight:700">'+label+': '+val+'</span>';
-  t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; t.style.display='block';
+  t.style.display='block';
+  _positionTip(t,evt);
 }
-function moveTip(evt){ var t=document.getElementById('spark-tip'); t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; }
+function moveTip(evt){ _positionTip(document.getElementById('spark-tip'),evt); }
 function hideTip(){ document.getElementById('spark-tip').style.display='none'; }
 </script>
 <div class="hdr" style="display:flex;justify-content:space-between;align-items:center">

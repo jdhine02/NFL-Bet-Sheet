@@ -36,8 +36,18 @@ details[open] summary{border-bottom:1px solid var(--bd)}
 .section-count{font-family:var(--body);font-weight:600;font-size:10px;color:#fff;background:var(--navy);border-radius:10px;padding:1px 8px;margin-left:6px}
 .note{font-size:10px;color:var(--dim);margin-bottom:10px;text-align:center}
 .tbd{color:#9ca3af}
+
+
+body{padding-bottom:64px}
+.mnav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#fff;border-top:1px solid var(--bd);
+box-shadow:0 -2px 8px rgba(0,0,0,.08);z-index:100}
+.mnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 2px;
+text-decoration:none;color:var(--dim);font-size:9px;font-weight:700;gap:2px}
+.mnav a .micon{font-size:18px}
+.mnav a.active{color:var(--navy)}
 </style></head><body>
 <div class="hdr"><div class="htitle">Injuries &amp; Transactions</div></div>
 
+<div class="mnav"><a href="market_lines_props.html" class=""><span class="micon">📊</span>Props</a><a href="games.html" class=""><span class="micon">🏈</span>Games</a><a href="parlays.html" class=""><span class="micon">🎯</span>Parlays</a><a href="injuries.html" class="active"><span class="micon">🚑</span>Injuries</a><a href="results.html" class=""><span class="micon">✅</span>Results</a></div>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js');}</script>
 </body></html>

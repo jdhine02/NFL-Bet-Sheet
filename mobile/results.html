@@ -39,6 +39,15 @@ details[open] summary{border-bottom:1px solid var(--bd)}
 .tbd{color:#9ca3af}
 
 
+body{padding-bottom:64px}
+.mnav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#fff;border-top:1px solid var(--bd);
+box-shadow:0 -2px 8px rgba(0,0,0,.08);z-index:100}
+.mnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:7px 2px;
+text-decoration:none;color:var(--dim);font-size:9px;font-weight:700;gap:2px}
+.mnav a .micon{font-size:18px}
+.mnav a.active{color:var(--navy)}
+
+
 .mcard{background:#f8f9fc;border:1px solid var(--bd);border-radius:8px;padding:10px;margin-bottom:8px}
 .mcard:last-child{margin-bottom:0}
 .mcard-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
@@ -76,5 +85,6 @@ details[open] summary{border-bottom:1px solid var(--bd)}
   <summary>Recent Individual Picks <span class="chev">▶</span></summary>
   <div class="details-body"><div class="tbd">No real graded picks yet -- populates once picks are locked and their games complete.</div></div>
 </details>
+<div class="mnav"><a href="market_lines_props.html" class=""><span class="micon">📊</span>Props</a><a href="games.html" class=""><span class="micon">🏈</span>Games</a><a href="parlays.html" class=""><span class="micon">🎯</span>Parlays</a><a href="injuries.html" class=""><span class="micon">🚑</span>Injuries</a><a href="results.html" class="active"><span class="micon">✅</span>Results</a></div>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js');}</script>
 </body></html>
