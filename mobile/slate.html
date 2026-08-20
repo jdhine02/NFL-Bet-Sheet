@@ -13,6 +13,7 @@ body{font-family:var(--body);background:#f5f6fa;padding:10px;font-size:17px}
 .team{color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700}
 .pos{display:inline-block;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700}
 .pos-qb{background:#dbeafe;color:#1e40af}.pos-rb{background:#dcfce7;color:#166534}.pos-wr{background:#fef9c3;color:#854d0e}.pos-te{background:#ede9fe;color:#5b21b6}
+.grade{display:inline-block;padding:4px 10px;border-radius:5px;font-size:16px;font-weight:800;color:#fff}
 .badge{display:inline-block;font-size:8px;font-weight:800;padding:1px 6px;border-radius:4px;letter-spacing:.3px;margin-left:4px}
 .badge.lock{background:var(--gold);color:#fff}
 .badge.value{background:var(--green);color:#fff}
@@ -36,86 +37,71 @@ details[open] summary{border-bottom:1px solid var(--bd)}
 .section-count{font-family:var(--body);font-weight:600;font-size:10px;color:#fff;background:var(--navy);border-radius:10px;padding:1px 8px;margin-left:6px}
 .note{font-size:10px;color:var(--dim);margin-bottom:10px;text-align:center}
 .tbd{color:#9ca3af}
+
+.gcard{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:12px;margin-bottom:10px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.gcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;gap:8px}
+.gproj-center{flex:1;text-align:center}
+.matchup{font-family:var(--cond);font-size:19px;font-weight:800;color:var(--navy)}
+.matchup .team{font-size:15px;padding:3px 8px}
+.at{color:var(--dim);font-weight:500;font-size:13px}
+.gtime{font-size:10px;color:var(--dim);margin-bottom:10px}
+.gline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.gl-label{font-size:9px;color:var(--dim);text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.gline-cell{text-align:left}
+.ml-pill{display:inline-block;color:#fff;border-radius:5px;padding:3px 8px;font-family:var(--mono);font-size:12px;font-weight:700}
+.ml-dim{color:var(--dim);font-family:var(--mono);font-size:11px}
+.ml-sep{color:var(--dim);font-size:10px}
 </style></head><body>
-<div class="hdr"><div class="htitle">Full Slate</div></div>
-<div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">ARI @ LV</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+<div class="hdr"><div class="htitle">📋 Full Slate</div></div>
+<div class="note">Tap a card to open that game's full player-prop cards</div>
+<a href="game1.html" style="text-decoration:none;color:inherit"><div class="gcard">
+  <div class="gcard-top">
+    <div class="matchup"><span class="team" style="background:#000000">LV</span> <span class="at">@</span> <span class="team" style="background:#03202F">HOU</span></div>
+    <div class="gproj-center"><div style="font-size:10px;color:var(--dim);white-space:nowrap">LV 15.8-24.5 HOU</div><div style="font-size:9px;font-weight:800;color:#1493FF">OVER</div></div>
+    <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">LAC @ HOU</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+  <div class="gtime">TBD</div>
+  <div class="gline-grid">
+    <div class="gline-cell"><div class="gl-label">ML</div><span class="ml-pill" style="background:#000000">-118</span> <span class="ml-sep">/</span> <span class="ml-dim">100</span></div>
+    <div class="gline-cell"><div class="gl-label">Spread</div><span class="ml-pill" style="background:#000000">LV -1.5</span></div>
+    <div class="gline-cell"><div class="gl-label">Total</div><span class="mono">37.5</span></div>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">TEN @ SF</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+</div></a><a href="game2.html" style="text-decoration:none;color:inherit"><div class="gcard">
+  <div class="gcard-top">
+    <div class="matchup"><span class="team" style="background:#AA0000">SF</span> <span class="at">@</span> <span class="team" style="background:#0080C6">LAC</span></div>
+    <div class="gproj-center"><div style="font-size:10px;color:var(--dim);white-space:nowrap">SF 22.1-21.6 LAC</div><div style="font-size:9px;font-weight:800;color:#1493FF">OVER</div></div>
+    <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">DEN @ ATL</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+  <div class="gtime">TBD</div>
+  <div class="gline-grid">
+    <div class="gline-cell"><div class="gl-label">ML</div><span class="ml-pill" style="background:#AA0000">-124</span> <span class="ml-sep">/</span> <span class="ml-dim">106</span></div>
+    <div class="gline-cell"><div class="gl-label">Spread</div><span class="ml-pill" style="background:#AA0000">SF -1.5</span></div>
+    <div class="gline-cell"><div class="gl-label">Total</div><span class="mono">39.5</span></div>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">TB @ NYJ</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+</div></a><a href="game3.html" style="text-decoration:none;color:inherit"><div class="gcard">
+  <div class="gcard-top">
+    <div class="matchup"><span class="team" style="background:#125740">NYJ</span> <span class="at">@</span> <span class="team" style="background:#FFB612">PIT</span></div>
+    <div class="gproj-center"><div style="font-size:10px;color:var(--dim);white-space:nowrap">NYJ 20.4-26.0 PIT</div><div style="font-size:9px;font-weight:800;color:#1493FF">OVER</div></div>
+    <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">MIA @ WAS</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+  <div class="gtime">TBD</div>
+  <div class="gline-grid">
+    <div class="gline-cell"><div class="gl-label">ML</div><span class="ml-pill" style="background:#125740">-126</span> <span class="ml-sep">/</span> <span class="ml-dim">108</span></div>
+    <div class="gline-cell"><div class="gl-label">Spread</div><span class="ml-pill" style="background:#125740">NYJ -1.5</span></div>
+    <div class="gline-cell"><div class="gl-label">Total</div><span class="mono">36.5</span></div>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">CAR @ BUF</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+</div></a><a href="game4.html" style="text-decoration:none;color:inherit"><div class="gcard">
+  <div class="gcard-top">
+    <div class="matchup"><span class="team" style="background:#0085CA">CAR</span> <span class="at">@</span> <span class="team" style="background:#006778">JAX</span></div>
+    <div class="gproj-center"><div style="font-size:10px;color:var(--dim);white-space:nowrap">CAR 19.6-25.4 JAX</div><div style="font-size:9px;font-weight:800;color:#1493FF">OVER</div></div>
+    <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">CLE @ CHI</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
+  <div class="gtime">TBD</div>
+  <div class="gline-grid">
+    <div class="gline-cell"><div class="gl-label">ML</div><span class="ml-pill" style="background:#0085CA">-120</span> <span class="ml-sep">/</span> <span class="ml-dim">102</span></div>
+    <div class="gline-cell"><div class="gl-label">Spread</div><span class="ml-pill" style="background:#0085CA">CAR -1.5</span></div>
+    <div class="gline-cell"><div class="gl-label">Total</div><span class="mono">38.5</span></div>
   </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">MIN @ NYG</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
-  </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">LA @ KC</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
-  </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">JAX @ NO</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
-  </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">PHI @ BAL</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
-  </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div><div class="pcard">
-  <div class="pcard-top">
-    <div><strong style="font-size:15px">DAL @ SEA</strong>
-    <div style="font-size:10px;color:var(--dim);margin-top:2px">TBD</div></div>
-  </div>
-  <div class="mstat-row"><span class="tbd">ML/Spread/Total: TBD (odds not yet wired)</span></div>
-</div>
+</div></a>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js');}</script>
 </body></html>

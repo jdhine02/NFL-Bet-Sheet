@@ -8,12 +8,13 @@
 // one level up in /Logos/ (real structure confirmed 8/13/26, not the
 // original /mobile/icons/ assumption).
 
-const CACHE_NAME = "nfl-sheet-v2";
+const CACHE_NAME = "nfl-sheet-v3";
 const PRECACHE_URLS = [
   "./slate.html",
-  "./props_passing.html",
-  "./props_rushing.html",
-  "./props_receiving.html",
+  "./props_passing_yds.html",
+  "./props_rushing_yds.html",
+  "./props_receiving_yds.html",
+  "./props_receptions.html",
   "./injuries.html",
   "./manifest.json",
   "../Logos/icon-192.png",

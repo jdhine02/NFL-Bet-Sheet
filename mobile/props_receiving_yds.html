@@ -13,6 +13,7 @@ body{font-family:var(--body);background:#f5f6fa;padding:10px;font-size:17px}
 .team{color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700}
 .pos{display:inline-block;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700}
 .pos-qb{background:#dbeafe;color:#1e40af}.pos-rb{background:#dcfce7;color:#166534}.pos-wr{background:#fef9c3;color:#854d0e}.pos-te{background:#ede9fe;color:#5b21b6}
+.grade{display:inline-block;padding:4px 10px;border-radius:5px;font-size:16px;font-weight:800;color:#fff}
 .badge{display:inline-block;font-size:8px;font-weight:800;padding:1px 6px;border-radius:4px;letter-spacing:.3px;margin-left:4px}
 .badge.lock{background:var(--gold);color:#fff}
 .badge.value{background:var(--green);color:#fff}
@@ -36,176 +37,221 @@ details[open] summary{border-bottom:1px solid var(--bd)}
 .section-count{font-family:var(--body);font-weight:600;font-size:10px;color:#fff;background:var(--navy);border-radius:10px;padding:1px 8px;margin-left:6px}
 .note{font-size:10px;color:var(--dim);margin-bottom:10px;text-align:center}
 .tbd{color:#9ca3af}
+
+.pmatch{font-size:10px;color:var(--dim);margin-top:2px;display:flex;align-items:center;gap:5px}
+.pline-graph-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pline-row{display:flex;align-items:baseline;gap:10px;flex:0 0 auto;justify-content:flex-start}
+.pline-spark{flex:1;min-width:0;display:flex;justify-content:flex-end}
+.pline-spark svg{max-width:100%;height:auto}
+.pline{font-family:var(--mono);color:var(--navy);font-weight:800;font-size:15px}
+.px{font-family:var(--mono);font-size:13px;color:#374151}
+.pfd{font-family:var(--mono);font-size:12px;color:#fff;background:#1493FF;padding:2px 8px;border-radius:5px;margin-left:auto}
 </style></head><body>
+<div id="spark-tip" style="position:fixed;display:none;background:#1a1d2e;padding:5px 9px;border-radius:5px;
+font-size:10px;font-family:var(--mono);pointer-events:none;z-index:9999;white-space:nowrap;box-shadow:0 3px 10px rgba(0,0,0,.35)"></div>
+<script>
+function showTip(evt,label,val,opp,date,over){
+  var t=document.getElementById('spark-tip');
+  var color = over==='true' ? '#4ade80' : '#f87171';
+  t.innerHTML = '<span style="color:#9ca3af">'+date+' vs '+opp+'</span><br><span style="color:'+color+';font-weight:700">'+label+': '+val+'</span>';
+  t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; t.style.display='block';
+}
+function moveTip(evt){ var t=document.getElementById('spark-tip'); t.style.left=(evt.clientX+12)+'px'; t.style.top=(evt.clientY-28)+'px'; }
+function hideTip(){ document.getElementById('spark-tip').style.display='none'; }
+</script>
 <div class="hdr"><div class="htitle">Top 12 - Receiving Yards</div><div class="hsub">Ranked by projection</div></div>
-<div class="note">Tap a card for full detail. Line shows TBD until real odds are wired in.</div>
+<div class="note">Tap/hold a bar for date + opponent detail. Line shows TBD until real odds are wired in.</div>
 <div class="pcard">
   <div class="pcard-top">
     <span class="prank">1</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">CeeDee Lamb</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">DAL@SEA</div>
+    <div class="pname"><strong>Garrett Wilson</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#125740">NYJ</span>
+      <div class="pmatch">NYJ@PIT &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(104,62%,42%)"><div class="rating-num">8.7</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.8/10 = ~88% likelihood" style="background:hsl(106,62%,42%)">8.8</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x82.0</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x61.9</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="54.0" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','0','CLE','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">0</text><rect x="25.0" y="48.3" width="16" height="5.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','13','DEN','S2025W6',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">13</text><rect x="46.0" y="22.8" width="16" height="31.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','71','DAL','S2025W5',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">71</text><rect x="67.0" y="18.0" width="16" height="36.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','82','MIA','S2025W4',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">82</text><rect x="88.0" y="17.1" width="16" height="36.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','84','TB','S2025W3',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">84</text><rect x="109.0" y="32.0" width="16" height="22.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','50','BUF','S2025W2',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">50</text><rect x="130.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="#C8960C" stroke-width="2" style="cursor:help" onmouseover="showTip(event,'Yards','95','PIT (current matchup)','S2025W1',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><circle cx="138.0" cy="3.0" r="3.5" fill="#C8960C"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">95</text><rect x="151.0" y="31.6" width="16" height="22.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','51','MIA','S2024W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">51</text><rect x="172.0" y="25.0" width="16" height="29.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','66','BUF','S2024W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">66</text><rect x="193.0" y="30.3" width="16" height="23.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','54','LA','S2024W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">54</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">2</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Tyreek Hill</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">MIA@WAS</div>
+    <div class="pname"><strong>Nico Collins</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#03202F">HOU</span>
+      <div class="pmatch">HOU@LV &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(101,62%,42%)"><div class="rating-num">8.4</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.8/10 = ~88% likelihood" style="background:hsl(106,62%,42%)">8.8</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x78.9</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x60.6</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="47.6" width="16" height="6.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','21','PIT','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">21</text><rect x="25.0" y="36.5" width="16" height="17.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','57','LAC','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">57</text><rect x="46.0" y="35.9" width="16" height="18.1" rx="2" fill="#1a7a3a" stroke="#C8960C" stroke-width="2" style="cursor:help" onmouseover="showTip(event,'Yards','59','LV (current matchup)','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><circle cx="54.0" cy="3.0" r="3.5" fill="#C8960C"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">59</text><rect x="67.0" y="27.9" width="16" height="26.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','85','ARI','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">85</text><rect x="88.0" y="16.9" width="16" height="37.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','121','KC','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">121</text><rect x="109.0" y="23.9" width="16" height="30.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','98','IND','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">98</text><rect x="130.0" y="37.1" width="16" height="16.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','55','BUF','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">55</text><rect x="151.0" y="25.8" width="16" height="28.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','92','TEN','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">92</text><rect x="172.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','136','JAX','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">136</text><rect x="193.0" y="31.0" width="16" height="23.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','75','DEN','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">75</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">3</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Garrett Wilson</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">NYJ@TB</div>
+    <div class="pname"><strong>Tetairoa McMillan</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#0085CA">CAR</span>
+      <div class="pmatch">CAR@JAX &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(112,62%,42%)"><div class="rating-num">9.3</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="6.6/10 = ~66% likelihood" style="background:hsl(79,62%,42%)">6.6</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x71.8</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x60.2</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="28.0" width="16" height="26.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','81','LA','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">81</text><rect x="25.0" y="26.7" width="16" height="27.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','85','TB','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">85</text><rect x="46.0" y="52.4" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','5','SEA','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">5</text><rect x="67.0" y="30.6" width="16" height="23.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','73','TB','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">73</text><rect x="88.0" y="46.0" width="16" height="8.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','25','NO','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">25</text><rect x="109.0" y="40.2" width="16" height="13.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','43','LA','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">43</text><rect x="130.0" y="42.8" width="16" height="11.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','35','SF','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">35</text><rect x="151.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','130','ATL','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">130</text><rect x="172.0" y="34.7" width="16" height="19.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','60','NO','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">60</text><rect x="193.0" y="39.2" width="16" height="14.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','46','GB','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">46</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">4</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Nico Collins</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">HOU@LAC</div>
+    <div class="pname"><strong>Keenan Allen</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#0080C6">LAC</span>
+      <div class="pmatch">LAC@SF &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(106,62%,42%)"><div class="rating-num">8.8</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.8/10 = ~88% likelihood" style="background:hsl(106,62%,42%)">8.8</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x71.8</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x53.7</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="34.3" width="16" height="19.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','25','NE','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">25</text><rect x="25.0" y="25.6" width="16" height="28.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','36','DEN','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">36</text><rect x="46.0" y="40.6" width="16" height="13.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','17','HOU','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">17</text><rect x="67.0" y="19.3" width="16" height="34.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','44','DAL','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">44</text><rect x="88.0" y="25.6" width="16" height="28.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','36','KC','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">36</text><rect x="109.0" y="36.7" width="16" height="17.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','22','PHI','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">22</text><rect x="130.0" y="30.4" width="16" height="23.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','30','LV','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">30</text><rect x="151.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','53','JAX','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">53</text><rect x="172.0" y="39.0" width="16" height="15.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','19','PIT','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">19</text><rect x="193.0" y="21.7" width="16" height="32.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','41','TEN','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">41</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">5</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Ladd McConkey</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">LAC@HOU</div>
+    <div class="pname"><strong>DK Metcalf</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#FFB612">PIT</span>
+      <div class="pmatch">PIT@NYJ &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(98,62%,42%)"><div class="rating-num">8.2</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="4.9/10 = ~49% likelihood" style="background:hsl(59,62%,42%)">4.9</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x71.1</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x53.2</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="42.2" width="16" height="11.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','42','HOU','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">42</text><rect x="25.0" y="42.2" width="16" height="11.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','42','DET','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">42</text><rect x="46.0" y="38.5" width="16" height="15.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','55','MIA','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">55</text><rect x="67.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','148','BAL','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">148</text><rect x="88.0" y="45.0" width="16" height="9.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','32','BUF','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">32</text><rect x="109.0" y="47.8" width="16" height="6.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','22','CHI','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">22</text><rect x="130.0" y="40.2" width="16" height="13.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','49','CIN','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">49</text><rect x="151.0" y="44.1" width="16" height="9.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','35','LAC','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">35</text><rect x="172.0" y="52.3" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','6','IND','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">6</text><rect x="193.0" y="38.5" width="16" height="15.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','55','GB','S2025W8',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">55</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">6</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Puka Nacua</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">LA@KC</div>
+    <div class="pname"><strong>Ladd McConkey</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#0080C6">LAC</span>
+      <div class="pmatch">LAC@SF &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(113,62%,42%)"><div class="rating-num">9.4</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.3/10 = ~83% likelihood" style="background:hsl(100,62%,42%)">8.3</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x70.9</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x52.8</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="41.5" width="16" height="12.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','32','NE','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">32</text><rect x="25.0" y="41.9" width="16" height="12.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','31','HOU','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">31</text><rect x="46.0" y="37.2" width="16" height="16.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','43','DAL','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">43</text><rect x="67.0" y="46.2" width="16" height="7.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','20','KC','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">20</text><rect x="88.0" y="49.3" width="16" height="4.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','12','PHI','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">12</text><rect x="109.0" y="38.8" width="16" height="15.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','39','LV','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">39</text><rect x="130.0" y="48.9" width="16" height="5.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','13','JAX','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">13</text><rect x="151.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','107','PIT','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">107</text><rect x="172.0" y="32.2" width="16" height="21.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','56','TEN','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">56</text><rect x="193.0" y="19.7" width="16" height="34.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','88','MIN','S2025W8',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">88</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">7</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Justin Jefferson</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">MIN@NYG</div>
+    <div class="pname"><strong>Jalen Coker</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#0085CA">CAR</span>
+      <div class="pmatch">CAR@JAX &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(98,62%,42%)"><div class="rating-num">8.2</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="7.6/10 = ~76% likelihood" style="background:hsl(91,62%,42%)">7.6</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x70.4</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x45.9</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','134','LA','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">134</text><rect x="25.0" y="39.4" width="16" height="14.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','47','TB','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">47</text><rect x="46.0" y="49.0" width="16" height="5.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','16','SEA','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">16</text><rect x="67.0" y="39.4" width="16" height="14.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','47','TB','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">47</text><rect x="88.0" y="35.3" width="16" height="18.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','60','NO','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">60</text><rect x="109.0" y="31.0" width="16" height="23.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','74','LA','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">74</text><rect x="130.0" y="44.0" width="16" height="10.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','32','SF','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">32</text><rect x="151.0" y="37.8" width="16" height="16.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','52','ATL','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">52</text><rect x="172.0" y="47.5" width="16" height="6.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','21','NO','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">21</text><rect x="193.0" y="51.2" width="16" height="2.8" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','9','GB','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">9</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">8</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Jaxon Smith-Njigba</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">SEA@DAL</div>
+    <div class="pname"><strong>Jakobi Meyers</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#006778">JAX</span>
+      <div class="pmatch">JAX@CAR &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(103,62%,42%)"><div class="rating-num">8.6</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="6.4/10 = ~64% likelihood" style="background:hsl(77,62%,42%)">6.4</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x69.7</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x44.1</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="48.4" width="16" height="5.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','12','BUF','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">12</text><rect x="25.0" y="33.6" width="16" height="20.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','44','TEN','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">44</text><rect x="46.0" y="35.9" width="16" height="18.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','39','IND','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">39</text><rect x="67.0" y="33.1" width="16" height="20.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','45','DEN','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">45</text><rect x="88.0" y="21.1" width="16" height="32.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','71','NYJ','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">71</text><rect x="109.0" y="35.9" width="16" height="18.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','39','IND','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">39</text><rect x="130.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','90','TEN','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">90</text><rect x="151.0" y="30.8" width="16" height="23.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','50','ARI','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">50</text><rect x="172.0" y="24.3" width="16" height="29.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','64','LAC','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">64</text><rect x="193.0" y="35.0" width="16" height="19.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','41','HOU','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">41</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">9</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">George Pickens</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">DAL@SEA</div>
+    <div class="pname"><strong>Brian Thomas Jr.</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#006778">JAX</span>
+      <div class="pmatch">JAX@CAR &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(73,62%,42%)"><div class="rating-num">6.1</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.2/10 = ~82% likelihood" style="background:hsl(98,62%,42%)">8.2</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x63.9</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x43.4</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="44.3" width="16" height="9.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','21','BUF','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">21</text><rect x="25.0" y="31.3" width="16" height="22.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','49','TEN','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">49</text><rect x="46.0" y="35.9" width="16" height="18.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','39','IND','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">39</text><rect x="67.0" y="45.7" width="16" height="8.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','18','DEN','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">18</text><rect x="88.0" y="23.4" width="16" height="30.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','66','NYJ','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">66</text><rect x="109.0" y="13.7" width="16" height="40.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','87','IND','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">87</text><rect x="130.0" y="41.0" width="16" height="13.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','28','TEN','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">28</text><rect x="151.0" y="28.5" width="16" height="25.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','55','LV','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">55</text><rect x="172.0" y="39.6" width="16" height="14.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','31','LA','S2025W7',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">31</text><rect x="193.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','90','SEA','S2025W6',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">90</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">10</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Chris Olave</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">NO@JAX</div>
+    <div class="pname"><strong>Quentin Johnston</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#0080C6">LAC</span>
+      <div class="pmatch">LAC@SF &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(109,62%,42%)"><div class="rating-num">9.1</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.4/10 = ~84% likelihood" style="background:hsl(101,62%,42%)">8.4</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x63.8</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x39.4</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="46.0" width="16" height="8.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','20','NE','S2025W19',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">20</text><rect x="25.0" y="14.7" width="16" height="39.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','98','HOU','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">98</text><rect x="46.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','104','DAL','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">104</text><rect x="67.0" y="50.8" width="16" height="3.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','8','PHI','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">8</text><rect x="88.0" y="44.8" width="16" height="9.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','23','LV','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">23</text><rect x="109.0" y="54.0" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','0','JAX','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">0</text><rect x="130.0" y="37.1" width="16" height="16.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','42','PIT','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">42</text><rect x="151.0" y="32.7" width="16" height="21.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','53','TEN','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">53</text><rect x="172.0" y="42.0" width="16" height="12.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','30','IND','S2025W7',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">30</text><rect x="193.0" y="37.9" width="16" height="16.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','40','WAS','S2025W5',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">40</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">11</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">DeVonta Smith</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">PHI@BAL</div>
+    <div class="pname"><strong>Ricky Pearsall</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#AA0000">SF</span>
+      <div class="pmatch">SF@LAC &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(106,62%,42%)"><div class="rating-num">8.8</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="6.5/10 = ~65% likelihood" style="background:hsl(78,62%,42%)">6.5</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x62.9</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x38.9</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="54.0" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','0','SEA','S2025W20',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">0</text><rect x="25.0" y="23.7" width="16" height="30.3" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','85','CHI','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">85</text><rect x="46.0" y="19.8" width="16" height="34.2" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','96','TEN','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">96</text><rect x="67.0" y="49.0" width="16" height="5.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','14','CLE','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">14</text><rect x="88.0" y="51.9" width="16" height="2.1" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','6','CAR','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">6</text><rect x="109.0" y="54.0" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','0','ARI','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">0</text><rect x="130.0" y="37.6" width="16" height="16.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','46','JAX','S2025W4',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">46</text><rect x="151.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','117','ARI','S2025W3',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">117</text><rect x="172.0" y="34.0" width="16" height="20.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','56','NO','S2025W2',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">56</text><rect x="193.0" y="15.5" width="16" height="38.5" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','108','SEA','S2025W1',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">108</text></svg></div>
   </div>
 </div><div class="pcard">
   <div class="pcard-top">
     <span class="prank">12</span>
-    <div style="flex:1;margin-left:8px">
-      <strong style="font-size:15px">Rashee Rice</strong> <span class="pos pos-wr">WR</span>
-      <div style="font-size:10px;color:var(--dim);margin-top:2px">KC@LA</div>
+    <div class="pname"><strong>Tre Tucker</strong> <span class="pos pos-wr">WR</span><span class="team" style="background:#000000">LV</span>
+      <div class="pmatch">LV@HOU &middot; <span style="color:#4A6FA5;font-weight:800;font-size:11px;font-family:var(--cond)">Other</span></div>
     </div>
-    <div class="rating-chip" style="background:hsl(97,62%,42%)"><div class="rating-num">8.1</div><div class="rating-lbl">RATING</div></div>
+    <span class="grade" title="8.6/10 = ~86% likelihood" style="background:hsl(103,62%,42%)">8.6</span>
   </div>
-  <div class="mstat-row">
-    <span class="mstat-line"><span class="tbd">TBD</span></span>
-    <span class="mstat-x">x62.5</span>
-    <span class="mstat-edge">—</span>
+  <div class="pline-graph-row">
+    <div class="pline-row">
+      <span class="pline"><span class="tbd">TBD</span></span>
+      <span class="px">x34.7</span>
+      
+    </div>
+    <div class="pline-spark"><svg width="100%" viewBox="0 0 217 71" xmlns="http://www.w3.org/2000/svg" style="max-width:217px"><rect x="4.0" y="28.4" width="16" height="25.6" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','30','KC','S2025W18',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="12.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">30</text><rect x="25.0" y="12.3" width="16" height="41.7" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','49','NYG','S2025W17',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="33.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">49</text><rect x="46.0" y="17.4" width="16" height="36.6" rx="2" fill="#1a7a3a" stroke="#C8960C" stroke-width="2" style="cursor:help" onmouseover="showTip(event,'Yards','43','HOU (current matchup)','S2025W16',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><circle cx="54.0" cy="3.0" r="3.5" fill="#C8960C"/><text x="54.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">43</text><rect x="67.0" y="54.0" width="16" height="2.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','0','PHI','S2025W15',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="75.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">0</text><rect x="88.0" y="33.6" width="16" height="20.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','24','DEN','S2025W14',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="96.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">24</text><rect x="109.0" y="37.0" width="16" height="17.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','20','LAC','S2025W13',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="117.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">20</text><rect x="130.0" y="30.1" width="16" height="23.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','28','CLE','S2025W12',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="138.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">28</text><rect x="151.0" y="14.0" width="16" height="40.0" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','47','DAL','S2025W11',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="159.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">47</text><rect x="172.0" y="30.1" width="16" height="23.9" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','28','DEN','S2025W10',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="180.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">28</text><rect x="193.0" y="21.6" width="16" height="32.4" rx="2" fill="#1a7a3a" stroke="none" style="cursor:help" onmouseover="showTip(event,'Yards','38','JAX','S2025W9',true)" onmousemove="moveTip(event)" onmouseout="hideTip()"/><text x="201.0" y="67" text-anchor="middle" font-size="11.5" font-family="JetBrains Mono, monospace" font-weight="700" fill="#166534">38</text></svg></div>
   </div>
 </div>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js');}</script>

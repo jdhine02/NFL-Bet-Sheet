@@ -1,6 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="../Logos/apple-touch-icon.png"><meta name="theme-color" content="#0B2545">
+<link rel="manifest" href="./manifest.json"><link rel="apple-touch-icon" href="../Logos/apple-touch-icon.png">
+<meta name="theme-color" content="#0B2545">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0B2545;--dim:#6b7280;--bd:#e0e4ed;--green:#1a7a3a;--gold:#C8960C;--cond:'Barlow Condensed',sans-serif;--mono:'JetBrains Mono',monospace;--body:'Inter',sans-serif}
@@ -36,8 +37,44 @@ details[open] summary{border-bottom:1px solid var(--bd)}
 .section-count{font-family:var(--body);font-weight:600;font-size:10px;color:#fff;background:var(--navy);border-radius:10px;padding:1px 8px;margin-left:6px}
 .note{font-size:10px;color:var(--dim);margin-bottom:10px;text-align:center}
 .tbd{color:#9ca3af}
-</style></head><body>
-<div class="hdr"><div class="htitle">Injuries &amp; Transactions</div></div>
 
+
+.mcard{background:#f8f9fc;border:1px solid var(--bd);border-radius:8px;padding:10px;margin-bottom:8px}
+.mcard:last-child{margin-bottom:0}
+.mcard-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
+.mstat{margin-bottom:8px}.mstat:last-child{margin-bottom:0}
+.mstat-label{font-family:var(--cond);font-weight:800;color:var(--navy);font-size:11px;min-width:60px}
+.mstat-graph svg{width:100%;height:auto}
+.mstat-graph-row{display:flex;align-items:center;gap:12px}
+.mstat-graph{flex:0 0 auto}
+.mstat-rate{flex:1;text-align:center;border-left:1px solid var(--bd);padding-left:12px;min-width:60px}
+.rate-val{font-family:var(--cond);font-size:22px;font-weight:800;color:var(--navy);line-height:1.1}
+.rate-lbl{font-size:12.5px;color:var(--dim);text-transform:uppercase;font-weight:700}
+.tstat-table{width:100%;border-collapse:collapse;margin-bottom:4px;font-size:11px}
+.tstat-table th{font-size:8px;color:var(--dim);text-transform:uppercase;padding:4px;text-align:center}
+.tstat-table td{padding:5px 4px;text-align:center;font-family:var(--mono)}
+.tstat-table .tl{text-align:left;font-family:var(--body)}
+.game-box{background:#fff;border:2px solid var(--navy);border-radius:10px;padding:0;margin-bottom:14px;overflow:hidden}
+.game-box summary{cursor:pointer;list-style:none;padding:12px;background:linear-gradient(180deg,#ffffff,#e0e2e6);color:var(--navy);display:flex;align-items:center;justify-content:space-between}
+.game-box summary::-webkit-details-marker{display:none}
+.game-box summary::before{content:"\25B6";display:inline-block;margin-right:8px;font-size:11px;transition:transform .15s}
+.game-box[open] summary::before{transform:rotate(90deg)}
+.game-box-body{background:linear-gradient(180deg,#ffffff,#e5e7eb);padding:10px}
+.cell-hl-m{display:inline-block;border-radius:5px;padding:3px 9px;font-weight:800;font-family:var(--mono);color:#fff;font-size:13px}
+.prop-section summary{background:#4A6FA5;color:#fff;border-radius:6px}
+.prop-section summary .section-count{color:#fff;opacity:.85}
+.prop-section summary .chev{color:#fff}
+.prop-section[open] summary{border-radius:6px 6px 0 0;border-bottom:none}
+
+</style></head><body>
+<div class="hdr"><div class="htitle">📊 Results</div></div>
+<details class="prop-section" open>
+  <summary>Record by Prop Type <span class="chev">▶</span></summary>
+  <div class="details-body"><div class="tbd">No real graded picks yet.</div></div>
+</details>
+<details class="prop-section" open>
+  <summary>Recent Individual Picks <span class="chev">▶</span></summary>
+  <div class="details-body"><div class="tbd">No real graded picks yet -- populates once picks are locked and their games complete.</div></div>
+</details>
 <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js');}</script>
 </body></html>
