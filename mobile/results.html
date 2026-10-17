@@ -27,6 +27,18 @@ body{font-family:var(--body);background:#f5f6fa;padding:10px;font-size:17px}
 .mstat-x{font-family:var(--mono);font-size:13px;color:#374151}
 .mstat-edge{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:auto}
 .prank{font-family:var(--cond);font-size:22px;font-weight:900;color:var(--navy);min-width:26px;display:inline-block}
+.pcard-top{gap:10px;align-items:flex-start}
+.pname{flex:1;min-width:0;text-align:left}
+.pn-line{font-size:17px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:center;gap:5px}
+.pstats{display:grid;grid-template-columns:1.2fr 1.2fr .9fr;gap:8px;margin:10px 0 8px;background:#f5f7fb;border-radius:8px;padding:8px 10px}
+.pst-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);margin-bottom:3px}
+.pst-v{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.pst .pline{font-size:17px}
+.pst .grade{font-size:14px;padding:2px 7px}
+.pst .px{font-size:17px;font-weight:800;color:var(--navy)}
+.pspark{overflow-x:auto}
+.pspark svg{max-width:100%;height:auto;display:block}
+.pspark-cap{font-size:11px;color:var(--dim);margin-top:4px}
 details{background:#fff;border:1px solid var(--bd);border-radius:10px;margin-bottom:10px;overflow:hidden}
 summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--cond);font-weight:800;font-size:15px;color:var(--navy)}
 summary::-webkit-details-marker{display:none}
@@ -97,19 +109,22 @@ text-decoration:none;color:var(--dim);font-size:9px;font-weight:700;gap:2px}
 </div><div class="pcard">
   <div class="pname"><strong>Week 5</strong></div>
   <div class="mstat-l">37W - 39L - 0Push &middot; 48.7%</div>
+</div><div class="pcard">
+  <div class="pname"><strong>Week 6</strong></div>
+  <div class="mstat-l">2W - 3L - 0Push &middot; 40.0%</div>
 </div></div>
 </details>
 <details class="prop-section" open>
   <summary>Game Lines (ML / Spread / O/U) <span class="chev">▶</span></summary>
   <div class="details-body"><div class="pcard">
   <div class="pname"><strong>Moneyline</strong></div>
-  <div class="mstat-l">44W - 33L - 1Push &middot; 57.1%</div>
+  <div class="mstat-l">44W - 34L - 1Push &middot; 56.4%</div>
 </div><div class="pcard">
   <div class="pname"><strong>Spread</strong></div>
-  <div class="mstat-l">39W - 38L - 1Push &middot; 50.6%</div>
+  <div class="mstat-l">39W - 39L - 1Push &middot; 50.0%</div>
 </div><div class="pcard">
   <div class="pname"><strong>Over/Under</strong></div>
-  <div class="mstat-l">28W - 50L - 0Push &middot; 35.9%</div>
+  <div class="mstat-l">28W - 51L - 0Push &middot; 35.4%</div>
 </div><div class="pcard">
   <div class="pname"><strong>Week 1</strong></div>
   <div class="mstat-l">ML 6-9 &middot; Spread 7-8 &middot; O/U 4-11</div>
@@ -125,12 +140,15 @@ text-decoration:none;color:var(--dim);font-size:9px;font-weight:700;gap:2px}
 </div><div class="pcard">
   <div class="pname"><strong>Week 5</strong></div>
   <div class="mstat-l">ML 10-4-1 &middot; Spread 6-9 &middot; O/U 6-9</div>
+</div><div class="pcard">
+  <div class="pname"><strong>Week 6</strong></div>
+  <div class="mstat-l">ML 0-1 &middot; Spread 0-1 &middot; O/U 0-1</div>
 </div></div>
 </details>
 <details class="prop-section" open>
   <summary>Value / Lock &mdash; every game-tab pick <span class="chev">▶</span></summary>
-  <div class="details-body"><div class="pcard"><div class="pname"><strong>💰 Value</strong></div><div class="mstat-l">51W - 63L - 0Push &middot; 44.7% &middot; -5.1u &middot; 3 void</div></div><div class="pcard"><div class="pname"><strong>🔒 Lock</strong></div><div class="mstat-l">7W - 5L - 0Push &middot; 58.3% &middot; +0.9u</div></div>
-  <div class="mstat-l" style="color:var(--dim)">217 locked so far. Locked when first tagged, at that price; 1-unit flat profit.</div></div>
+  <div class="details-body"><div class="pcard"><div class="pname"><strong>💰 Value</strong></div><div class="mstat-l">60W - 70L - 0Push &middot; 46.2% &middot; -3.8u &middot; 3 void</div></div><div class="pcard"><div class="pname"><strong>🔒 Lock</strong></div><div class="mstat-l">8W - 5L - 0Push &middot; 61.5% &middot; +1.5u</div></div>
+  <div class="mstat-l" style="color:var(--dim)">218 locked so far. Locked when first tagged, at that price; 1-unit flat profit.</div></div>
 </details>
 <details class="prop-section" open>
   <summary>Closing Line Value <span class="chev">▶</span></summary>
@@ -140,334 +158,50 @@ text-decoration:none;color:var(--dim);font-size:9px;font-weight:700;gap:2px}
 <details class="prop-section" open>
   <summary>Record by Prop Type <span class="chev">▶</span></summary>
   <div class="details-body"><div class="pcard">
+  <div class="pname"><strong>Passing yds</strong></div>
+  <div class="mstat-l">23W - 22L - 0Push &middot; 51.1%</div>
+</div><div class="pcard">
   <div class="pname"><strong>Passing td</strong></div>
   <div class="mstat-l">36W - 23L - 0Push &middot; 61.0%</div>
-</div><div class="pcard">
-  <div class="pname"><strong>Receiving yds</strong></div>
-  <div class="mstat-l">37W - 23L - 0Push &middot; 61.7%</div>
-</div><div class="pcard">
-  <div class="pname"><strong>Passing yds</strong></div>
-  <div class="mstat-l">23W - 21L - 0Push &middot; 52.3%</div>
 </div><div class="pcard">
   <div class="pname"><strong>Rushing td</strong></div>
   <div class="mstat-l">28W - 31L - 0Push &middot; 47.5%</div>
 </div><div class="pcard">
-  <div class="pname"><strong>Rushing yds</strong></div>
-  <div class="mstat-l">25W - 22L - 0Push &middot; 53.2%</div>
-</div><div class="pcard">
   <div class="pname"><strong>Receiving td</strong></div>
-  <div class="mstat-l">33W - 20L - 0Push &middot; 62.3%</div>
+  <div class="mstat-l">34W - 20L - 0Push &middot; 63.0%</div>
 </div><div class="pcard">
   <div class="pname"><strong>Receiving rec</strong></div>
   <div class="mstat-l">29W - 23L - 0Push &middot; 55.8%</div>
+</div><div class="pcard">
+  <div class="pname"><strong>Rushing yds</strong></div>
+  <div class="mstat-l">25W - 23L - 0Push &middot; 52.1%</div>
+</div><div class="pcard">
+  <div class="pname"><strong>Receiving yds</strong></div>
+  <div class="mstat-l">38W - 24L - 0Push &middot; 61.3%</div>
 </div></div>
 </details>
 <details class="prop-section" open>
   <summary>Recent Individual Picks <span class="chev">▶</span></summary>
   <div class="details-body"><div class="pcard">
-  <div class="pname"><strong>Kyren Williams</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 67.5 &middot; Actual 49 &middot;
+  <div class="pname"><strong>Bo Nix</strong> <span style="font-size:10px;color:var(--dim)">Week 6 &middot; passing/yds</span></div>
+  <div class="mstat-l">Line 200.5 &middot; Actual 107 &middot;
   <span style="font-weight:800;color:#991b1b">L</span></div>
 </div><div class="pcard">
-  <div class="pname"><strong>Khalil Shakir</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 45.5 &middot; Actual 80 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Puka Nacua</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>James Cook</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Kyren Williams</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Josh Allen</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Puka Nacua</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 6.5 &middot; Actual 17 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Josh Allen</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 243.5 &middot; Actual 210 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Zay Flowers</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
+  <div class="pname"><strong>Jaxon Smith-Njigba</strong> <span style="font-size:10px;color:var(--dim)">Week 6 &middot; receiving/td</span></div>
   <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
   <span style="font-weight:800;color:#166534">W</span></div>
 </div><div class="pcard">
-  <div class="pname"><strong>George Kittle</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
+  <div class="pname"><strong>Courtland Sutton</strong> <span style="font-size:10px;color:var(--dim)">Week 6 &middot; receiving/yds</span></div>
+  <div class="mstat-l">Line 31.5 &middot; Actual 19 &middot;
   <span style="font-weight:800;color:#991b1b">L</span></div>
 </div><div class="pcard">
-  <div class="pname"><strong>Michael Wilson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
+  <div class="pname"><strong>Rashid Shaheed</strong> <span style="font-size:10px;color:var(--dim)">Week 6 &middot; receiving/yds</span></div>
+  <div class="mstat-l">Line 22.5 &middot; Actual 66 &middot;
   <span style="font-weight:800;color:#166534">W</span></div>
 </div><div class="pcard">
-  <div class="pname"><strong>Amon-Ra St. Brown</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
+  <div class="pname"><strong>J.K. Dobbins</strong> <span style="font-size:10px;color:var(--dim)">Week 6 &middot; rushing/yds</span></div>
+  <div class="mstat-l">Line 47.5 &middot; Actual 41 &middot;
   <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Christian McCaffrey</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Bijan Robinson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jahmyr Gibbs</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Derrick Henry</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jacoby Brissett</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 3 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Brock Purdy</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Amon-Ra St. Brown</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 6.5 &middot; Actual 6 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Rashid Shaheed</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Deebo Samuel Sr.</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 3.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Courtland Sutton</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 36.5 &middot; Actual 18 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Rashid Shaheed</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 19.5 &middot; Actual 23 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Deebo Samuel Sr.</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 31.5 &middot; Actual 21 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Christian McCaffrey</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 53.5 &middot; Actual 68 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Omarion Hampton</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 37.5 &middot; Actual 33 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Brock Purdy</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 225.5 &middot; Actual 189 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Justin Herbert</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 199.5 &middot; Actual 121 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Terry McLaurin</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 40.5 &middot; Actual 62 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Alvin Kamara</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 32.5 &middot; Actual 12 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jauan Jennings</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jauan Jennings</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 20.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Rhamondre Stevenson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 37.5 &middot; Actual 64 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>T.J. Hockenson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 36.5 &middot; Actual 7 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Kendre Miller</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 21.5 &middot; Actual 30 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Joe Burrow</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 4 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Keenan Allen</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 3.5 &middot; Actual 5 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Keenan Allen</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 30.5 &middot; Actual 45 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Rachaad White</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 23.5 &middot; Actual 18 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Tyler Shough</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 237.5 &middot; Actual 96 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Romeo Doubs</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Chris Olave</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Tee Higgins</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Nico Collins</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jauan Jennings</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Christian Watson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jacory Croskey-Merritt</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Rhamondre Stevenson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>D'Andre Swift</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>David Montgomery</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jonathan Taylor</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Drake Maye</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 4 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>C.J. Stroud</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Trevor Lawrence</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Kirk Cousins</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jordan Love</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 1.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Cam Ward</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 0 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jalen Hurts</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Wan'Dale Robinson</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 3.5 &middot; Actual 6 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Chris Rodriguez Jr.</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 26.5 &middot; Actual 5 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Tony Pollard</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 48.5 &middot; Actual 52 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jalen Hurts</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 193.5 &middot; Actual 220 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Daniel Jones</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 219.5 &middot; Actual 267 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Geno Smith</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 206.5 &middot; Actual 182 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Javonte Williams</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Jalon Daniels</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/td</span></div>
-  <div class="mstat-l">Line 0.5 &middot; Actual 1 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>George Pickens</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 4.5 &middot; Actual 9 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>CeeDee Lamb</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 5.5 &middot; Actual 2 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Emeka Egbuka</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 2.5 &middot; Actual 6 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Chris Godwin Jr.</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/rec</span></div>
-  <div class="mstat-l">Line 3.5 &middot; Actual 3 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>George Pickens</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 61.5 &middot; Actual 130 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>CeeDee Lamb</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 80.5 &middot; Actual 9 &middot;
-  <span style="font-weight:800;color:#991b1b">L</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Emeka Egbuka</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 33.5 &middot; Actual 38 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Chris Godwin Jr.</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; receiving/yds</span></div>
-  <div class="mstat-l">Line 27.5 &middot; Actual 37 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Bucky Irving</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; rushing/yds</span></div>
-  <div class="mstat-l">Line 51.5 &middot; Actual 165 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
-</div><div class="pcard">
-  <div class="pname"><strong>Dak Prescott</strong> <span style="font-size:10px;color:var(--dim)">Week 5 &middot; passing/yds</span></div>
-  <div class="mstat-l">Line 263.5 &middot; Actual 316 &middot;
-  <span style="font-weight:800;color:#166534">W</span></div>
 </div></div>
 </details>
 <div class="mnav"><a href="market_lines_props.html" class=""><span class="micon">📊</span>Props</a><a href="games.html" class=""><span class="micon">🏈</span>Games</a><a href="parlays.html" class=""><span class="micon">🎯</span>Parlays</a><a href="injuries.html" class=""><span class="micon">🚑</span>Injuries/Trans</a><a href="results.html" class="active"><span class="micon">✅</span>Results</a></div>
